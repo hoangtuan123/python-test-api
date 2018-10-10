@@ -10,8 +10,10 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
-        sh 'docker build -t nghoangtuan92/hello .'
+        
+        docker.build('nghoangtuan92/hello').inside("--volume=/var/run/docker.sock:/var/run/docker.sock") {  
+           // The build here
+        }
     }
 
     stage('Test image') {
