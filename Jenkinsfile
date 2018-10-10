@@ -11,9 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         
-        docker.build('nghoangtuan92/hello').inside("--volume=/var/run/docker.sock:/var/run/docker.sock") {  
-           // The build here
-        }
+        sh 'docker build -t nghoangtuan92/hello .'
     }
 
     stage('Test image') {
