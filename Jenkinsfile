@@ -26,6 +26,9 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
+        sh 'docker stop nghoangtuan92/hello'
+        sh 'docker rm nghoangtuan92/hello'
         sh 'docker run -d --name api-python -p 3000:80 nghoangtuan92/hello'
+        
     }
 }
