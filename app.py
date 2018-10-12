@@ -15,7 +15,7 @@ def hello():
     except RedisError:
         visits = "<i>cannot connect to Redis, counter disabled</i>"
 
-    html = "<h3>Hello user abc {name}!</h3>" \
+    html = "<h3>Hello user bcd {name}!</h3>" \
             "<b>Hostname is:</b> {hostname}<br/>" \
             "<b>Visits:</b> {visits}"
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
