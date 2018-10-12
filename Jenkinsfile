@@ -27,6 +27,6 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         sh 'docker ps -q --filter "name=api-python" | grep -q . && docker stop api-python && docker rm -fv api-python'
-        sh 'docker run -d --name api-python -p 3000:80 nghoangtuan92/hello'
+        sh 'docker-compose up --build -d'
     }
 }
