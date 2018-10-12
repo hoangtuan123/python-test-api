@@ -7,26 +7,26 @@ node {
         checkout scm
     }
 
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
+    // stage('Build image') {
+    //     /* This builds the actual image; synonymous to
+    //      * docker build on the command line */
         
-        sh 'docker build -t nghoangtuan92/hello .'
-    }
+    //     sh 'docker build -t nghoangtuan92/hello .'
+    // }
 
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
+    // stage('Test image') {
+    //     /* Ideally, we would run a test framework against our image.
+    //      * For this example, we're using a Volkswagen-type approach ;-) */
 
-        sh 'echo "Tests passed"'
-    }
+    //     sh 'echo "Tests passed"'
+    // }
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        sh 'docker ps -q --filter "name=api-python" | grep -q . && docker stop api-python && docker rm -fv api-python'
+        //sh 'docker ps -q --filter "name=api-python" | grep -q . && docker stop api-python && docker rm -fv api-python'
         sh 'docker-compose up --build -d'
     }
 }
