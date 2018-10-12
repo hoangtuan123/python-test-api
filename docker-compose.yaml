@@ -5,3 +5,10 @@ services:
     container_name: api-python
     ports: 
       - 3000:80
+    links: 
+      - redis
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    container_name: redis-db
